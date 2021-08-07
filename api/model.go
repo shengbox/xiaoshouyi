@@ -157,3 +157,9 @@ type Product struct {
 	Id          int64  `json:"id"`
 	ProductName string `json:"productName"`
 }
+
+type DocumentResp struct {
+	TotalSize int        `json:"totalSize"`
+	Count     int        `json:"count"`
+	Record    []Document `json:"record"`
+}

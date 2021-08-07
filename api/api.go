@@ -80,6 +80,22 @@ func (a *API) XOQLQuery(sql string, v interface{}) error {
 	return err
 }
 
+func (a *API) GetDocument(dataId string) ([]Document, error) {
+	var result DocumentResp
+	response, err := resty.New().R().SetHeader("Authorization", a.Tokener.Token()).
+		SetResult(&result).
+		SetQueryParam("belongId", "1").
+		SetQueryParam("dataId", dataId).
+		Get(Endpoint + "/data/v1/objects/document/list")
+	if Debug {
+		log.Printf("response = %s", response.String())
+	}
+	if err != nil {
+		return nil, err
+	}
+	return result.Record, nil
+}
+
 func getFieldName(t reflect.Type) []string {
 	if t.Kind() == reflect.Ptr {
 		t = t.Elem()

@@ -133,23 +133,23 @@ type Account struct {
 
 // Contract 合同
 type Contract struct {
-	AccountId      int64       `json:"accountId"`
-	CreatedAt      int64       `json:"createdAt"`
-	EndDate        int64       `json:"endDate"`
-	Id             int64       `json:"id"`
-	OwnerId        int64       `json:"ownerId"`
-	StartDate      int64       `json:"startDate"`
-	Status         int         `json:"status"`
-	Title          string      `json:"title"`
-	UpdatedAt      int64       `json:"updatedAt"`
-	CustomItem158C int64       `json:"customItem158__c"`
-	CustomItem159C string      `json:"customItem159__c"`
-	CustomItem160C int         `json:"customItem160__c"`
-	CustomItem161C interface{} `json:"customItem161__c"`
-	CustomItem162C interface{} `json:"customItem162__c"`
-	CustomItem163C interface{} `json:"customItem163__c"`
-	CustomItem164C interface{} `json:"customItem164__c"`
-	CustomItem165C interface{} `json:"customItem165__c"`
+	AccountId        int64       `json:"accountId"`
+	CreatedAt        int64       `json:"createdAt"`
+	EndDate          int64       `json:"endDate"`
+	Id               int64       `json:"id"`
+	OwnerId          int64       `json:"ownerId"`
+	StartDate        int64       `json:"startDate"`
+	Status           int         `json:"status"`
+	Title            string      `json:"title"`
+	UpdatedAt        int64       `json:"updatedAt"`
+	CustomItem158__C int64       `json:"customItem158__c"`
+	CustomItem159__C string      `json:"customItem159__c"`
+	CustomItem160__C int         `json:"customItem160__c"`
+	CustomItem161__C interface{} `json:"customItem161__c"`
+	CustomItem162__C interface{} `json:"customItem162__c"`
+	CustomItem163__C interface{} `json:"customItem163__c"`
+	CustomItem164__C interface{} `json:"customItem164__c"`
+	CustomItem165__C interface{} `json:"customItem165__c"`
 }
 
 //Product 产品

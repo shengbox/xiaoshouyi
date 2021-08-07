@@ -22,7 +22,7 @@ func (t *Tokener) Token() string {
 		defer t.mutex.Unlock()
 		accessToken, issuedAt := t.tokenFetcher()
 		t.AccessToken = accessToken
-		t.IssuedAt = issuedAt
+		t.IssuedAt = issuedAt + 60*60*1000 // 销售易的bug，返回的是accessToken生成时间，而非失效时间
 	}
 	return t.AccessToken
 }

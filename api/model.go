@@ -76,3 +76,78 @@ type User struct {
 	Phone  string `json:"phone"`
 	Status int    `json:"status"`
 }
+
+// Account 客户
+type Account struct {
+	AccountName               string      `json:"accountName"`
+	AccountScore              int         `json:"accountScore"`
+	ActualInvoicedAmount      int         `json:"actualInvoicedAmount"`
+	Address                   string      `json:"address"`
+	AmountUnbilled            int         `json:"amountUnbilled"`
+	AnnualRevenue             interface{} `json:"annualRevenue"`
+	ClaimTime                 interface{} `json:"claimTime"`
+	Comment                   interface{} `json:"comment"`
+	CreatedAt                 int64       `json:"createdAt"`
+	CreatedBy                 int64       `json:"createdBy"`
+	DimDepart                 int64       `json:"dimDepart"`
+	DoNotDisturb              bool        `json:"doNotDisturb"`
+	EcouponsAccountLabel      interface{} `json:"ecouponsAccountLabel"`
+	EmployeeNumber            interface{} `json:"employeeNumber"`
+	ExpireTime                interface{} `json:"expireTime"`
+	FCity                     int         `json:"fCity"`
+	FDistrict                 interface{} `json:"fDistrict"`
+	FState                    int         `json:"fState"`
+	Fax                       interface{} `json:"fax"`
+	HighSeaAccountSource      []int       `json:"highSeaAccountSource"`
+	HighSeaId                 int64       `json:"highSeaId"`
+	HighSeaStatus             int         `json:"highSeaStatus"`
+	Id                        int64       `json:"id"`
+	IndustryId                int         `json:"industryId"`
+	InvoiceBalance            int         `json:"invoiceBalance"`
+	IsCustomer                string      `json:"isCustomer"`
+	LeadId                    interface{} `json:"leadId"`
+	Level                     int         `json:"level"`
+	LockStatus                int         `json:"lockStatus"`
+	OutterDepartId            interface{} `json:"outterDepartId"`
+	OwnerId                   int64       `json:"ownerId"`
+	PaidAmount                int         `json:"paidAmount"`
+	ParentAccountId           interface{} `json:"parentAccountId"`
+	Phone                     interface{} `json:"phone"`
+	RecentActivityCreatedBy   interface{} `json:"recentActivityCreatedBy"`
+	RecentActivityRecordTime  interface{} `json:"recentActivityRecordTime"`
+	SrcFlg                    int         `json:"srcFlg"`
+	TotalActiveOrders         int         `json:"totalActiveOrders"`
+	TotalOrderAmount          int         `json:"totalOrderAmount"`
+	TotalWonOpportunities     int         `json:"totalWonOpportunities"`
+	TotalWonOpportunityAmount int         `json:"totalWonOpportunityAmount"`
+	UnpaidAmount              int         `json:"unpaidAmount"`
+	UpdatedAt                 int64       `json:"updatedAt"`
+	UpdatedBy                 int64       `json:"updatedBy"`
+	Url                       interface{} `json:"url"`
+	VisitInplanCount          int         `json:"visitInplanCount"`
+	VisitLatestTime           interface{} `json:"visitLatestTime"`
+	VisitTotalCount           int         `json:"visitTotalCount"`
+	VisitUnvisitDay           interface{} `json:"visitUnvisitDay"`
+	ZipCode                   interface{} `json:"zipCode"`
+}
+
+// Contract 合同
+type Contract struct {
+	AccountId int64  `json:"accountId"`
+	CreatedAt int64  `json:"createdAt"`
+	EndDate   int64  `json:"endDate"`
+	Id        int64  `json:"id"`
+	OwnerId   int64  `json:"ownerId"`
+	StartDate int64  `json:"startDate"`
+	Status    int    `json:"status"`
+	Title     string `json:"title"`
+	UpdatedAt int64  `json:"updatedAt"`
+	//CustomItem158C int64       `json:"customItem158__c"`
+	//CustomItem159C string      `json:"customItem159__c"`
+	//CustomItem160C int         `json:"customItem160__c"`
+	//CustomItem161C interface{} `json:"customItem161__c"`
+	//CustomItem162C interface{} `json:"customItem162__c"`
+	//CustomItem163C interface{} `json:"customItem163__c"`
+	//CustomItem164C interface{} `json:"customItem164__c"`
+	//CustomItem165C interface{} `json:"customItem165__c"`
+}

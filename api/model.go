@@ -151,3 +151,9 @@ type Contract struct {
 	//CustomItem164C interface{} `json:"customItem164__c"`
 	//CustomItem165C interface{} `json:"customItem165__c"`
 }
+
+//Product 产品
+type Product struct {
+	Id          int64  `json:"id"`
+	ProductName string `json:"productName"`
+}

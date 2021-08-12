@@ -98,6 +98,7 @@ func (a *API) Transfer(accountId, targetOwnerId string) error {
 		return err
 	}
 	if Debug {
+		log.Printf("request url  = %s", "/data/v1/objects/account/transfer")
 		log.Printf("response = %s", response.String())
 	}
 	return err

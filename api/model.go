@@ -18,17 +18,21 @@ type ActivityResp struct {
 
 // ActivityRecord 活动记录
 type ActivityRecord struct {
-	Id                int64       `json:"id"`
-	OwnerId           int64       `json:"ownerId"`
-	StartTime         int64       `json:"startTime"`
-	IntentionalDegree interface{} `json:"intentionalDegree"`
-	NeedFollow        bool        `json:"needFollow"`
-	EntityType        int64       `json:"entityType"`
-	Content           string      `json:"content"`
-	ContactName       interface{} `json:"contactName"`
-	ContactPhone      interface{} `json:"contactPhone"`
-	DbcRelation26     int64       `json:"dbcRelation26"`
-	UpdatedAt         int         `json:"updatedAt"`
+	Id                int64       `json:"id,omitempty"`
+	OwnerId           int64       `json:"ownerId,omitempty"`
+	ItemId            int64       `json:"itemId,omitempty"`
+	StartTime         int64       `json:"startTime,omitempty"`
+	IntentionalDegree interface{} `json:"intentionalDegree,omitempty"`
+	NeedFollow        bool        `json:"needFollow,omitempty"`
+	EntityType        int64       `json:"entityType,omitempty"`
+	DimDepart         int64       `json:"dimDepart,omitempty"`
+	BelongId          int         `json:"belongId,omitempty"`
+	Content           string      `json:"content,omitempty"`
+	ContactName       interface{} `json:"contactName,omitempty"`
+	ContactPhone      interface{} `json:"contactPhone,omitempty"`
+	DbcRelation26     int64       `json:"dbcRelation26,omitempty"`
+	UpdatedAt         int64       `json:"updatedAt,omitempty"`
+	CreatedAt         int64       `json:"createdAt,omitempty"`
 }
 
 // Contact 联系人
@@ -218,7 +222,7 @@ type Description struct {
 	} `json:"data"`
 }
 
-type AccountResp struct {
+type CommonResp struct {
 	BaseResp `json:",inline"`
 	Data     struct {
 		Id           int64  `json:"id"`

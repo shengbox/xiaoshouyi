@@ -20,9 +20,9 @@ func (a *API) Description(objectName string) (*Description, error) {
 }
 
 //CreateAccount 创建客户
-func (a *API) CreateAccount(account *Account) (*AccountResp, error) {
+func (a *API) CreateAccount(account *Account) (*CommonResp, error) {
 	body := map[string]interface{}{"data": account}
-	var result AccountResp
+	var result CommonResp
 	response, err := resty.New().R().SetBody(body).SetResult(&result).
 		SetHeader("Authorization", a.Tokener.Token()).
 		Post(Endpoint + "/rest/data/v2.0/xobjects/account")
@@ -39,11 +39,11 @@ func (a *API) CreateAccount(account *Account) (*AccountResp, error) {
 }
 
 //UpdateAccount 更新客户信息
-func (a *API) UpdateAccount(account *Account) (*AccountResp, error) {
+func (a *API) UpdateAccount(account *Account) (*CommonResp, error) {
 	body := map[string]interface{}{
 		"data": account,
 	}
-	var result AccountResp
+	var result CommonResp
 	response, err := resty.New().R().SetResult(&result).SetBody(body).
 		SetHeader("Authorization", a.Tokener.Token()).
 		Patch(Endpoint + "/rest/data/v2.0/xobjects/account/" + cast.ToString(account.Id))
@@ -63,18 +63,25 @@ func (a *API) UpdateAccount(account *Account) (*AccountResp, error) {
 }
 
 //CreateActivityRecord 创建活动记录
-func (a *API) CreateActivityRecord(record *ActivityRecord) error {
+func (a *API) CreateActivityRecord(record *ActivityRecord) (*CommonResp, error) {
 	body := map[string]interface{}{"data": record}
-	response, err := resty.New().R().SetBody(body).
+	var result CommonResp
+	response, err := resty.New().R().SetResult(&result).SetBody(body).
 		SetHeader("Authorization", a.Tokener.Token()).
 		Post(Endpoint + "/rest/data/v2.0/xobjects/activityrecord")
 	if err != nil {
-		return err
+		return nil, err
 	}
 	if Debug {
+		bt, _ := json.Marshal(body)
+		log.Printf("request url  = %s", "/rest/data/v2.0/xobjects/activityrecord")
+		log.Printf("request body = %s", string(bt))
 		log.Printf("response = %s", response.String())
 	}
-	return err
+	if result.Code != "200" {
+		return nil, errors.New(result.Msg)
+	}
+	return &result, err
 }
 
 //Transfer 转移客户
@@ -91,6 +98,22 @@ func (a *API) Transfer(accountId, targetOwnerId string) error {
 		return err
 	}
 	if Debug {
+		log.Printf("response = %s", response.String())
+	}
+	return err
+}
+
+// Release 客户退回公海池
+func (a *API) Release(accountId string) error {
+	body := map[string]interface{}{
+		"reasonType": 1388121,
+		"accountIds": accountId,
+	}
+	response, err := resty.New().R().SetBody(body).Post(Endpoint + "/rest/data/v2.0/xobjects/account/actions/release")
+	if Debug {
+		bt, _ := json.Marshal(body)
+		log.Printf("request url  = %s", "/rest/data/v2.0/xobjects/activityrecord")
+		log.Printf("request body = %s", string(bt))
 		log.Printf("response = %s", response.String())
 	}
 	return err

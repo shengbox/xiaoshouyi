@@ -8,10 +8,8 @@ type BaseResp struct {
 }
 
 type ActivityResp struct {
-	Code   int           `json:"code"`
-	Msg    string        `json:"msg"`
-	Ext    []interface{} `json:"ext"`
-	Result struct {
+	BaseResp `json:",inline"`
+	Result   struct {
 		TotalSize int           `json:"totalSize"`
 		Count     int           `json:"count"`
 		Records   []interface{} `json:"records"`
@@ -221,9 +219,8 @@ type Description struct {
 }
 
 type AccountResp struct {
-	Code string `json:"code"`
-	Msg  string `json:"msg"`
-	Data struct {
+	BaseResp `json:",inline"`
+	Data     struct {
 		Id           int64  `json:"id"`
 		ObjectApiKey string `json:"objectApiKey"`
 		BusiType     int64  `json:"busiType"`

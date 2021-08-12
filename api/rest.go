@@ -63,7 +63,7 @@ func (a *API) UpdateAccount(account *Account) (*CommonResp, error) {
 }
 
 //CreateActivityRecord 创建活动记录
-func (a *API) CreateActivityRecord(record *ActivityRecord) (*CommonResp, error) {
+func (a *API) CreateActivityRecord(record *ActivityRecordReq) (*CommonResp, error) {
 	body := map[string]interface{}{"data": record}
 	var result CommonResp
 	response, err := resty.New().R().SetResult(&result).SetBody(body).

@@ -7,9 +7,11 @@ type BaseResp struct {
 	Ext       []interface{} `json:"ext"`
 }
 
-type ActivityResp struct {
-	BaseResp `json:",inline"`
-	Result   struct {
+type XOQLResp struct {
+	Code   int           `json:"code"`
+	Msg    string        `json:"msg"`
+	Ext    []interface{} `json:"ext"`
+	Result struct {
 		TotalSize int           `json:"totalSize"`
 		Count     int           `json:"count"`
 		Records   []interface{} `json:"records"`
@@ -18,6 +20,23 @@ type ActivityResp struct {
 
 // ActivityRecord 活动记录
 type ActivityRecord struct {
+	Id                int64       `json:"id,omitempty"`
+	OwnerId           int64       `json:"ownerId,omitempty" bson:"ownerId"`
+	StartTime         int64       `json:"startTime,omitempty" bson:"startTime"`
+	IntentionalDegree interface{} `json:"intentionalDegree,omitempty"`
+	NeedFollow        bool        `json:"needFollow,omitempty"`
+	EntityType        int64       `json:"entityType,omitempty"`
+	DimDepart         int64       `json:"dimDepart,omitempty"`
+	Content           string      `json:"content,omitempty"`
+	ContactName       interface{} `json:"contactName,omitempty"`
+	ContactPhone      interface{} `json:"contactPhone,omitempty"`
+	DbcRelation26     int64       `json:"dbcRelation26,omitempty" bson:"dbcRelation26"`
+	UpdatedAt         int64       `json:"updatedAt,omitempty" bson:"updatedAt"`
+	CreatedAt         int64       `json:"createdAt,omitempty" bson:"createdAt"`
+}
+
+// ActivityRecordReq 活动记录
+type ActivityRecordReq struct {
 	Id                int64       `json:"id,omitempty"`
 	OwnerId           int64       `json:"ownerId,omitempty" bson:"ownerId"`
 	ItemId            int64       `json:"itemId,omitempty"`

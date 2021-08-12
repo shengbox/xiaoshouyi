@@ -129,6 +129,7 @@ type Account struct {
 	VisitTotalCount           int         `json:"visitTotalCount"`
 	VisitUnvisitDay           interface{} `json:"visitUnvisitDay"`
 	ZipCode                   interface{} `json:"zipCode"`
+	EntityType                int64       `json:"entityType"`
 }
 
 // Contract 合同

@@ -1,27 +1,43 @@
 package test
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/shengbox/xiaoshouyi/api"
-	"log"
 	"testing"
 	"time"
 )
 
+const (
+	client       = ""
+	clientSecret = ""
+	username     = ""
+	password     = ""
+)
+
 func TestCreateAccount(t *testing.T) {
-	xsy := api.New("", "", "", "", "")
+	api.Debug = true
+	xsy := api.New(client, clientSecret, username, password, "")
 	account := &api.Account{
-		OwnerId:     1,
-		AccountName: "测试",
+		OwnerId:     int64(1481294232240872),
+		AccountName: "测试测试有限公司",
 		EntityType:  int64(1449331636765394),
 		DimDepart:   int64(1466747499905749),
-		CreatedAt:   time.Now().Unix() * 1000,
-		UpdatedAt:   time.Now().Unix() * 1000,
+		CreatedAt:   time.Now().Unix() * int64(1000),
+		UpdatedAt:   time.Now().Unix() * int64(1000),
 		HighSeaId:   int64(1449333235581632),
 		Phone:       "18666666666",
 		Address:     "华润大厦",
 		Comment:     "呵呵",
-		Level:       int(1),
+		Level:       1,
 	}
-	err := xsy.CreateAccount(account)
-	log.Panicln(err)
+	_, _ = xsy.CreateAccount(account)
+}
+
+func TestDescription(t *testing.T) {
+	api.Debug = true
+	xsy := api.New(client, clientSecret, username, password, "")
+	data, _ := xsy.Description("account")
+	bt, _ := json.MarshalIndent(data, "", "  ")
+	fmt.Println(string(bt))
 }

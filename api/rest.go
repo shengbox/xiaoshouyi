@@ -5,20 +5,38 @@ import (
 	"log"
 )
 
-func (a *API) CreateAccount(account *Account) error {
+func (a *API) Description(objectName string) (*Description, error) {
+	var result Description
+	response, err := resty.New().R().
+		SetResult(&result).
+		SetHeader("Authorization", a.Tokener.Token()).
+		Get(Endpoint + "/rest/data/v2.0/xobjects/" + objectName + "/description")
+	if Debug {
+		log.Printf("response = %s", response.String())
+	}
+	return &result, err
+}
+
+//CreateAccount 创建客户
+func (a *API) CreateAccount(account *Account) (*AccountResp, error) {
 	body := map[string]interface{}{
 		"data": account,
 	}
+	var result AccountResp
 	response, err := resty.New().R().SetBody(body).
-		SetHeader("Authorization", a.Tokener.AccessToken).
+		SetResult(&result).
+		SetHeader("Authorization", a.Tokener.Token()).
 		Post(Endpoint + "/rest/data/v2.0/xobjects/account")
 	if err != nil {
-		return nil
+		return nil, err
 	}
-	log.Printf("response = %s", response.String())
-	return err
+	if Debug {
+		log.Printf("response = %s", response.String())
+	}
+	return &result, err
 }
 
+//GetDocument 文档信息
 func (a *API) GetDocument(dataId string) ([]Document, error) {
 	var result DocumentResp
 	response, err := resty.New().R().SetHeader("Authorization", a.Tokener.Token()).

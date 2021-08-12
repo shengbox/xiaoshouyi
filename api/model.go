@@ -1,5 +1,12 @@
 package api
 
+type BaseResp struct {
+	Code      string        `json:"code"`
+	Msg       string        `json:"msg"`
+	ErrorInfo interface{}   `json:"errorInfo"`
+	Ext       []interface{} `json:"ext"`
+}
+
 type ActivityResp struct {
 	Code   int           `json:"code"`
 	Msg    string        `json:"msg"`
@@ -79,57 +86,57 @@ type User struct {
 
 // Account 客户
 type Account struct {
-	AccountName               string      `json:"accountName"`
-	AccountScore              int         `json:"accountScore"`
-	ActualInvoicedAmount      int         `json:"actualInvoicedAmount"`
-	Address                   string      `json:"address"`
-	AmountUnbilled            int         `json:"amountUnbilled"`
-	AnnualRevenue             interface{} `json:"annualRevenue"`
-	ClaimTime                 interface{} `json:"claimTime"`
-	Comment                   interface{} `json:"comment"`
-	CreatedAt                 int64       `json:"createdAt"`
-	CreatedBy                 int64       `json:"createdBy"`
-	DimDepart                 int64       `json:"dimDepart"`
-	DoNotDisturb              bool        `json:"doNotDisturb"`
-	EcouponsAccountLabel      interface{} `json:"ecouponsAccountLabel"`
-	EmployeeNumber            interface{} `json:"employeeNumber"`
-	ExpireTime                interface{} `json:"expireTime"`
-	FCity                     int         `json:"fCity"`
-	FDistrict                 interface{} `json:"fDistrict"`
-	FState                    int         `json:"fState"`
-	Fax                       interface{} `json:"fax"`
-	HighSeaAccountSource      []int       `json:"highSeaAccountSource"`
-	HighSeaId                 int64       `json:"highSeaId"`
-	HighSeaStatus             int         `json:"highSeaStatus"`
-	Id                        int64       `json:"id"`
-	IndustryId                int         `json:"industryId"`
-	InvoiceBalance            int         `json:"invoiceBalance"`
-	IsCustomer                string      `json:"isCustomer"`
-	LeadId                    interface{} `json:"leadId"`
-	Level                     int         `json:"level"`
-	LockStatus                int         `json:"lockStatus"`
-	OutterDepartId            interface{} `json:"outterDepartId"`
-	OwnerId                   int64       `json:"ownerId"`
-	PaidAmount                int         `json:"paidAmount"`
-	ParentAccountId           interface{} `json:"parentAccountId"`
-	Phone                     interface{} `json:"phone"`
-	RecentActivityCreatedBy   interface{} `json:"recentActivityCreatedBy"`
-	RecentActivityRecordTime  interface{} `json:"recentActivityRecordTime"`
-	SrcFlg                    int         `json:"srcFlg"`
-	TotalActiveOrders         int         `json:"totalActiveOrders"`
-	TotalOrderAmount          int         `json:"totalOrderAmount"`
-	TotalWonOpportunities     int         `json:"totalWonOpportunities"`
-	TotalWonOpportunityAmount int         `json:"totalWonOpportunityAmount"`
-	UnpaidAmount              int         `json:"unpaidAmount"`
-	UpdatedAt                 int64       `json:"updatedAt"`
-	UpdatedBy                 int64       `json:"updatedBy"`
-	Url                       interface{} `json:"url"`
-	VisitInplanCount          int         `json:"visitInplanCount"`
-	VisitLatestTime           interface{} `json:"visitLatestTime"`
-	VisitTotalCount           int         `json:"visitTotalCount"`
-	VisitUnvisitDay           interface{} `json:"visitUnvisitDay"`
-	ZipCode                   interface{} `json:"zipCode"`
-	EntityType                int64       `json:"entityType"`
+	AccountName               string      `json:"accountName,omitempty"`
+	AccountScore              int         `json:"accountScore,omitempty"`
+	ActualInvoicedAmount      int         `json:"actualInvoicedAmount,omitempty"`
+	Address                   string      `json:"address,omitempty"`
+	AmountUnbilled            int         `json:"amountUnbilled,omitempty"`
+	AnnualRevenue             interface{} `json:"annualRevenue,omitempty"`
+	ClaimTime                 interface{} `json:"claimTime,omitempty"`
+	Comment                   interface{} `json:"comment,omitempty"`
+	CreatedAt                 int64       `json:"createdAt,omitempty"`
+	CreatedBy                 int64       `json:"createdBy,omitempty"`
+	DimDepart                 int64       `json:"dimDepart,omitempty"`
+	DoNotDisturb              bool        `json:"doNotDisturb,omitempty"`
+	EcouponsAccountLabel      interface{} `json:"ecouponsAccountLabel,omitempty"`
+	EmployeeNumber            interface{} `json:"employeeNumber,omitempty"`
+	ExpireTime                interface{} `json:"expireTime,omitempty"`
+	FCity                     int         `json:"fCity,omitempty"`
+	FDistrict                 interface{} `json:"fDistrict,omitempty"`
+	FState                    int         `json:"fState,omitempty"`
+	Fax                       interface{} `json:"fax,omitempty"`
+	HighSeaAccountSource      []int       `json:"highSeaAccountSource,omitempty"`
+	HighSeaId                 int64       `json:"highSeaId,omitempty"`
+	HighSeaStatus             int         `json:"highSeaStatus,omitempty"`
+	Id                        int64       `json:"id,omitempty"`
+	IndustryId                int         `json:"industryId,omitempty"`
+	InvoiceBalance            int         `json:"invoiceBalance,omitempty"`
+	IsCustomer                string      `json:"isCustomer,omitempty"`
+	LeadId                    interface{} `json:"leadId,omitempty"`
+	Level                     int         `json:"level,omitempty"`
+	LockStatus                int         `json:"lockStatus,omitempty"`
+	OutterDepartId            interface{} `json:"outterDepartId,omitempty"`
+	OwnerId                   int64       `json:"ownerId,omitempty"`
+	PaidAmount                int         `json:"paidAmount,omitempty"`
+	ParentAccountId           interface{} `json:"parentAccountId,omitempty"`
+	Phone                     interface{} `json:"phone,omitempty"`
+	RecentActivityCreatedBy   interface{} `json:"recentActivityCreatedBy,omitempty"`
+	RecentActivityRecordTime  interface{} `json:"recentActivityRecordTime,omitempty"`
+	SrcFlg                    int         `json:"srcFlg,omitempty"`
+	TotalActiveOrders         int         `json:"totalActiveOrders,omitempty"`
+	TotalOrderAmount          int         `json:"totalOrderAmount,omitempty"`
+	TotalWonOpportunities     int         `json:"totalWonOpportunities,omitempty"`
+	TotalWonOpportunityAmount int         `json:"totalWonOpportunityAmount,omitempty"`
+	UnpaidAmount              int         `json:"unpaidAmount,omitempty"`
+	UpdatedAt                 int64       `json:"updatedAt,omitempty"`
+	UpdatedBy                 int64       `json:"updatedBy,omitempty"`
+	Url                       interface{} `json:"url,omitempty"`
+	VisitInplanCount          int         `json:"visitInplanCount,omitempty"`
+	VisitLatestTime           interface{} `json:"visitLatestTime,omitempty"`
+	VisitTotalCount           int         `json:"visitTotalCount,omitempty"`
+	VisitUnvisitDay           interface{} `json:"visitUnvisitDay,omitempty"`
+	ZipCode                   interface{} `json:"zipCode,omitempty"`
+	EntityType                int64       `json:"entityType,omitempty"`
 }
 
 // Contract 合同
@@ -163,4 +170,64 @@ type DocumentResp struct {
 	TotalSize int        `json:"totalSize"`
 	Count     int        `json:"count"`
 	Record    []Document `json:"record"`
+}
+
+type Description struct {
+	BaseResp `json:",inline"`
+	Data     struct {
+		ApiKey      string `json:"apiKey"`
+		Custom      bool   `json:"custom"`
+		Label       string `json:"label"`
+		Disabled    bool   `json:"disabled"`
+		Createable  bool   `json:"createable"`
+		Deletable   bool   `json:"deletable"`
+		Updateable  bool   `json:"updateable"`
+		Queryable   bool   `json:"queryable"`
+		FeedEnabled bool   `json:"feedEnabled"`
+		Fields      []struct {
+			ApiKey                string      `json:"apiKey"`
+			Label                 string      `json:"label"`
+			Type                  string      `json:"type"`
+			ItemType              string      `json:"itemType"`
+			DefaultValue          *string     `json:"defaultValue"`
+			Enabled               bool        `json:"enabled"`
+			Required              bool        `json:"required"`
+			Createable            bool        `json:"createable"`
+			Updateable            bool        `json:"updateable"`
+			Sortable              bool        `json:"sortable"`
+			MinLength             interface{} `json:"minLength"`
+			MaxLength             *int        `json:"maxLength"`
+			DependentPropertyName interface{} `json:"dependentPropertyName"`
+			Unique                bool        `json:"unique"`
+			Encrypt               bool        `json:"encrypt"`
+			ReferTo               struct {
+				ApiKey string `json:"apiKey"`
+			} `json:"referTo,omitempty"`
+			Selectitem []struct {
+				Label          string `json:"label"`
+				Value          int    `json:"value"`
+				ApiKey         string `json:"apiKey"`
+				DependentValue []int  `json:"dependentValue"`
+				IsActive       bool   `json:"isActive"`
+			} `json:"selectitem"`
+			Checkitem []struct {
+				Label    string `json:"label"`
+				Value    int    `json:"value"`
+				ApiKey   string `json:"apiKey"`
+				IsActive bool   `json:"isActive"`
+			} `json:"checkitem"`
+		} `json:"fields"`
+	} `json:"data"`
+}
+
+type AccountResp struct {
+	Code string `json:"code"`
+	Msg  string `json:"msg"`
+	Data struct {
+		Id           int64  `json:"id"`
+		ObjectApiKey string `json:"objectApiKey"`
+		BusiType     int64  `json:"busiType"`
+		Name         string `json:"name"`
+	} `json:"data"`
+	ErrorInfo interface{} `json:"errorInfo"`
 }

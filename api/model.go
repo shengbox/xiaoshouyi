@@ -19,9 +19,9 @@ type ActivityResp struct {
 // ActivityRecord 活动记录
 type ActivityRecord struct {
 	Id                int64       `json:"id,omitempty"`
-	OwnerId           int64       `json:"ownerId,omitempty"`
+	OwnerId           int64       `json:"ownerId,omitempty" bson:"ownerId"`
 	ItemId            int64       `json:"itemId,omitempty"`
-	StartTime         int64       `json:"startTime,omitempty"`
+	StartTime         int64       `json:"startTime,omitempty" bson:"startTime"`
 	IntentionalDegree interface{} `json:"intentionalDegree,omitempty"`
 	NeedFollow        bool        `json:"needFollow,omitempty"`
 	EntityType        int64       `json:"entityType,omitempty"`
@@ -30,9 +30,9 @@ type ActivityRecord struct {
 	Content           string      `json:"content,omitempty"`
 	ContactName       interface{} `json:"contactName,omitempty"`
 	ContactPhone      interface{} `json:"contactPhone,omitempty"`
-	DbcRelation26     int64       `json:"dbcRelation26,omitempty"`
-	UpdatedAt         int64       `json:"updatedAt,omitempty"`
-	CreatedAt         int64       `json:"createdAt,omitempty"`
+	DbcRelation26     int64       `json:"dbcRelation26,omitempty" bson:"dbcRelation26"`
+	UpdatedAt         int64       `json:"updatedAt,omitempty" bson:"updatedAt"`
+	CreatedAt         int64       `json:"createdAt,omitempty" bson:"createdAt"`
 }
 
 // Contact 联系人
@@ -88,7 +88,7 @@ type User struct {
 
 // Account 客户
 type Account struct {
-	AccountName               string      `json:"accountName,omitempty"`
+	AccountName               string      `json:"accountName,omitempty" bson:"accountName"`
 	AccountScore              int         `json:"accountScore,omitempty"`
 	ActualInvoicedAmount      int         `json:"actualInvoicedAmount,omitempty"`
 	Address                   string      `json:"address,omitempty"`
@@ -109,7 +109,7 @@ type Account struct {
 	Fax                       interface{} `json:"fax,omitempty"`
 	HighSeaAccountSource      []int       `json:"highSeaAccountSource,omitempty"`
 	HighSeaId                 int64       `json:"highSeaId,omitempty"`
-	HighSeaStatus             int         `json:"highSeaStatus,omitempty"`
+	HighSeaStatus             int         `json:"highSeaStatus,omitempty" bson:"highSeaStatus"`
 	Id                        int64       `json:"id,omitempty"`
 	IndustryId                int         `json:"industryId,omitempty"`
 	InvoiceBalance            int         `json:"invoiceBalance,omitempty"`
@@ -118,7 +118,7 @@ type Account struct {
 	Level                     int         `json:"level,omitempty"`
 	LockStatus                int         `json:"lockStatus,omitempty"`
 	OutterDepartId            interface{} `json:"outterDepartId,omitempty"`
-	OwnerId                   int64       `json:"ownerId,omitempty"`
+	OwnerId                   int64       `json:"ownerId,omitempty" bson:"ownerId"`
 	PaidAmount                int         `json:"paidAmount,omitempty"`
 	ParentAccountId           interface{} `json:"parentAccountId,omitempty"`
 	Phone                     interface{} `json:"phone,omitempty"`

@@ -74,9 +74,11 @@ func (a *API) XOQLQuery(sql string, v interface{}) error {
 		log.Printf("response = %s", response.String())
 	}
 	if err != nil {
+		log.Printf("err = %s", err.Error())
 		return err
 	}
 	if resp.Code != 200 {
+		log.Printf("err = %s", response.String())
 		return errors.New(resp.Msg)
 	}
 	bt, _ := json.Marshal(resp.Result.Records)

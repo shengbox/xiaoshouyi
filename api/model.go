@@ -19,6 +19,7 @@ type ActivityResp struct {
 // ActivityRecord 活动记录
 type ActivityRecord struct {
 	Id                int64       `json:"id,omitempty"`
+	ContactId         int64       `json:"contactId" bson:"contactId"`
 	OwnerId           int64       `json:"ownerId,omitempty" bson:"ownerId"`
 	ItemId            int64       `json:"itemId,omitempty"`
 	StartTime         int64       `json:"startTime,omitempty" bson:"startTime"`

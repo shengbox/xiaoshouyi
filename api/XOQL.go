@@ -2,6 +2,7 @@ package api
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/go-resty/resty/v2"
 	"github.com/spf13/cast"
@@ -64,7 +65,7 @@ func (a *API) XOQLRecords(page int, t, where, v interface{}) error {
 }
 
 func (a *API) XOQLQuery(sql string, v interface{}) error {
-	var resp ActivityResp
+	var resp XOQLResp
 	response, err := resty.New().R().SetResult(&resp).SetHeader("Authorization", a.Tokener.Token()).
 		SetQueryParam("q", sql).
 		Get(Endpoint + "/rest/data/v2/query")
@@ -73,7 +74,12 @@ func (a *API) XOQLQuery(sql string, v interface{}) error {
 		log.Printf("response = %s", response.String())
 	}
 	if err != nil {
+		log.Printf("err = %s", err.Error())
 		return err
+	}
+	if resp.Code != 200 {
+		log.Printf("err = %s", response.String())
+		return errors.New(resp.Msg)
 	}
 	bt, _ := json.Marshal(resp.Result.Records)
 	err = json.Unmarshal(bt, v)

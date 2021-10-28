@@ -63,7 +63,7 @@ type Contact struct {
 	Comment                  interface{} `json:"comment"`
 	ContactBirthday          interface{} `json:"contactBirthday"`
 	ContactName              string      `json:"contactName"`
-	ContactRole              int        `json:"contactRole"`
+	ContactRole              int         `json:"contactRole"`
 	ContactScore             int         `json:"contactScore"`
 	CreatedAt                int64       `json:"createdAt"`
 	CreatedBy                int64       `json:"createdBy"`
@@ -72,17 +72,61 @@ type Contact struct {
 	DoNotDisturb             bool        `json:"doNotDisturb"`
 	Email                    interface{} `json:"email"`
 	EntityType               int64       `json:"entityType"`
-	Gender                   int        `json:"gender"`
+	Gender                   int         `json:"gender"`
 	LockStatus               int         `json:"lockStatus"`
-	Mobile                   string     `json:"mobile"`
+	Mobile                   string      `json:"mobile"`
 	OwnerId                  int64       `json:"ownerId"`
-	Phone                    string     `json:"phone"`
+	Phone                    string      `json:"phone"`
 	Post                     interface{} `json:"post"`
 	RecentActivityRecordTime interface{} `json:"recentActivityRecordTime"`
 	State                    interface{} `json:"state"`
 	UpdatedAt                int64       `json:"updatedAt"`
 	UpdatedBy                int64       `json:"updatedBy"`
 	ZipCode                  interface{} `json:"zipCode"`
+}
+
+// Lead 线索
+type Lead struct {
+	Id                       int64  `json:"id"`
+	EntityType               int64  `json:"entityType"`               // 业务类型
+	OwnerId                  int64  `json:"ownerId"`                  // 销售线索所有人
+	Status                   int    `json:"status"`                   // 跟进状态
+	Name                     string `json:"name"`                     // 姓名
+	Gender                   int    `json:"gender"`                   // 性别
+	CompanyName              string `json:"companyName"`              // 公司名称
+	Depart                   string `json:"depart"`                   // 联系人所在部门
+	Post                     string `json:"post"`                     // 联系人职务
+	Phone                    string `json:"phone"`                    // 电话
+	Mobile                   string `json:"mobile"`                   // 手机
+	Email                    string `json:"email"`                    // 电子邮件
+	Address                  string `json:"address"`                  // 地址
+	LeadSourceId             int64  `json:"leadSourceId"`             // 线索来源
+	RecentActivityRecordTime int64  `json:"recentActivityRecordTime"` // 最新活动记录时间
+	CampaignId               int64  `json:"campaignId"`               //市场活动
+	RecentActivityCreatedBy  int64  `json:"recentActivityCreatedBy"`  //最新跟进人
+	CreatedAt                int64  `json:"createdAt"`                //创建日期
+	CreatedBy                int64  `json:"createdBy"`                //创建人
+	UpdatedAt                int64  `json:"updatedBt"`                //最新修改日
+	UpdatedBy                int64  `json:"updatedBy"`                //最新修改人
+	Comment                  string `json:"comment"`                  //备注
+	LockStatus               int    `json:"lockStatus"`               //锁定状态
+	HighSeaId                int64  `json:"highSeaId"`                //所属公海
+	ClaimTime                int64  `json:"claimTime"`                //认领日期
+	ExpireTime               int64  `json:"expireTime"`               //到期时间
+	HighSeaStatus            int    //状态
+	DimDepart                int64  //所属部门
+	ApplicantId              int64  //审批提交人
+	ApprovalStatus           int    //审批状态
+	DoNotDisturb             bool   //免打扰
+	OpportunityId            int64  //销售机会
+	DuplicateFlg             bool   `json:"duplicateFlg"` //疑似查重
+	ReleaseDefinition        string //退回原因说明
+	ContactId                int64  `json:"contactId"`     //联系人
+	AccountId                int64  `json:"accountId"`     //客户
+	ReleaseReason            int64  `json:"releaseReason"` //退回原因
+	ReleaseTime              int64  `json:"releaseTime"`   //退回时间
+	LastOwnerId              int64  `json:"lastOwnerId"`   //最后所有人
+	ReturnTimes              int64  `json:"returnTimes"`   //退回次数
 }
 
 // Document 文档
@@ -218,7 +262,7 @@ type Description struct {
 			Updateable            bool        `json:"updateable"`
 			Sortable              bool        `json:"sortable"`
 			MinLength             interface{} `json:"minLength"`
-			MaxLength             int        `json:"maxLength"`
+			MaxLength             int         `json:"maxLength"`
 			DependentPropertyName interface{} `json:"dependentPropertyName"`
 			Unique                bool        `json:"unique"`
 			Encrypt               bool        `json:"encrypt"`

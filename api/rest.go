@@ -3,9 +3,10 @@ package api
 import (
 	"encoding/json"
 	"errors"
+	"log"
+
 	"github.com/go-resty/resty/v2"
 	"github.com/spf13/cast"
-	"log"
 )
 
 func (a *API) Description(objectName string) (*Description, error) {
@@ -121,11 +122,11 @@ func (a *API) Release(accountId string) error {
 }
 
 //GetDocument 文档信息
-func (a *API) GetDocument(dataId string) ([]Document, error) {
+func (a *API) GetDocument(belongId, dataId string) ([]Document, error) {
 	var result DocumentResp
 	response, err := resty.New().R().SetHeader("Authorization", a.Tokener.Token()).
 		SetResult(&result).
-		SetQueryParam("belongId", "1").
+		SetQueryParam("belongId", belongId).
 		SetQueryParam("dataId", dataId).
 		Get(Endpoint + "/data/v1/objects/document/list")
 	if Debug {

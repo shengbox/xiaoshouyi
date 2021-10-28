@@ -63,7 +63,7 @@ type Contact struct {
 	Comment                  interface{} `json:"comment"`
 	ContactBirthday          interface{} `json:"contactBirthday"`
 	ContactName              string      `json:"contactName"`
-	ContactRole              *int        `json:"contactRole"`
+	ContactRole              int        `json:"contactRole"`
 	ContactScore             int         `json:"contactScore"`
 	CreatedAt                int64       `json:"createdAt"`
 	CreatedBy                int64       `json:"createdBy"`
@@ -72,11 +72,11 @@ type Contact struct {
 	DoNotDisturb             bool        `json:"doNotDisturb"`
 	Email                    interface{} `json:"email"`
 	EntityType               int64       `json:"entityType"`
-	Gender                   *int        `json:"gender"`
+	Gender                   int        `json:"gender"`
 	LockStatus               int         `json:"lockStatus"`
-	Mobile                   *string     `json:"mobile"`
+	Mobile                   string     `json:"mobile"`
 	OwnerId                  int64       `json:"ownerId"`
-	Phone                    *string     `json:"phone"`
+	Phone                    string     `json:"phone"`
 	Post                     interface{} `json:"post"`
 	RecentActivityRecordTime interface{} `json:"recentActivityRecordTime"`
 	State                    interface{} `json:"state"`
@@ -218,7 +218,7 @@ type Description struct {
 			Updateable            bool        `json:"updateable"`
 			Sortable              bool        `json:"sortable"`
 			MinLength             interface{} `json:"minLength"`
-			MaxLength             *int        `json:"maxLength"`
+			MaxLength             int        `json:"maxLength"`
 			DependentPropertyName interface{} `json:"dependentPropertyName"`
 			Unique                bool        `json:"unique"`
 			Encrypt               bool        `json:"encrypt"`

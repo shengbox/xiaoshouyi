@@ -4,12 +4,13 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/go-resty/resty/v2"
-	"github.com/spf13/cast"
 	"log"
 	"reflect"
 	"strings"
 	"sync"
+
+	"github.com/go-resty/resty/v2"
+	"github.com/spf13/cast"
 )
 
 var Debug = false
@@ -98,9 +99,7 @@ func getFieldName(t reflect.Type) []string {
 	result := make([]string, 0, fieldNum)
 	for i := 0; i < fieldNum; i++ {
 		if t.Field(i).Type.Kind() == reflect.Struct {
-			for _, it := range getFieldName(t.Field(i).Type) {
-				result = append(result, it)
-			}
+			result = append(result, getFieldName(t.Field(i).Type)...)
 		} else {
 			result = append(result, t.Field(i).Name)
 		}

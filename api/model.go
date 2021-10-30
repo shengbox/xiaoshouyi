@@ -144,10 +144,15 @@ type Document struct {
 
 // User 用户
 type User struct {
-	Id     int64  `json:"id"`
-	Name   string `json:"name"`
-	Phone  string `json:"phone"`
-	Status int    `json:"status"`
+	Id             int64  `json:"id"`
+	Name           string `json:"name"`
+	Phone          string `json:"phone"`
+	Status         int    `json:"status"` // 状态
+	LastestLoginAt int64  `json:"lastestLoginAt"`
+	CreatedAt      int64  // 创建时间
+	CreatedBy      int64  // 创建人
+	UpdatedAt      int64  // 修改时间
+	UpdatedBy      int64  // 修改人
 }
 
 // Account 客户

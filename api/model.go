@@ -228,8 +228,30 @@ type Contract struct {
 
 //Product 产品
 type Product struct {
-	Id          int64  `json:"id"`
-	ProductName string `json:"productName"`
+	Id                int64   `json:"id"`
+	ProductName       string  `json:"productName"`
+	FscTrackedAsAsset int     // 可转资产
+	ParentId          int64   // 产品目录
+	OwnerId           int64   // 产品所有人
+	PriceUnit         float64 // 标准价格
+	Unit              string  // 销售单位
+	Description       string  // 产品描述
+	CreatedAt         int64   // 创建日期
+	UpdatedAt         int64   // 最新修改日
+	EnableStatus      int     // 启用状态
+	CreatedBy         int64   // 创建人
+	UpdatedBy         int64   // 最新修改人
+	EntityType        int64   // 业务类型
+	DimDepart         int64   // 所属部门
+	ApprovalStatus    int     // 审批状态
+	ApplicantId       int64   // 审批提交人
+	LockStatus        int     // 锁定状态
+	FscProductModel   string  // 产品型号
+	FscProductSpec    string  // 产品规格
+	FscProductType    int     // 产品类型
+	FscNeedReturn     int     // 需要回收
+	CustomItem139__c  string  // 标准报价
+	CustomItem138__c  float64 // 收费比例
 }
 
 type DocumentResp struct {

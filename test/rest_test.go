@@ -1,11 +1,11 @@
 package test
 
 import (
-	"encoding/json"
 	"fmt"
-	"github.com/shengbox/xiaoshouyi/api"
 	"testing"
 	"time"
+
+	"github.com/shengbox/xiaoshouyi/api"
 )
 
 const (
@@ -38,6 +38,7 @@ func TestDescription(t *testing.T) {
 	api.Debug = true
 	xsy := api.New(client, clientSecret, username, password, "")
 	data, _ := xsy.Description("account")
-	bt, _ := json.MarshalIndent(data, "", "  ")
-	fmt.Println(string(bt))
+	for _, v := range data.Data.Fields {
+		fmt.Println(v.ApiKey, v.ItemType, "//", v.Label)
+	}
 }

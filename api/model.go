@@ -63,20 +63,20 @@ type Contact struct {
 	Comment                  interface{} `json:"comment"`
 	ContactBirthday          interface{} `json:"contactBirthday"`
 	ContactName              string      `json:"contactName"`
-	ContactRole              int        `json:"contactRole"`
+	ContactRole              int         `json:"contactRole"`
 	ContactScore             int         `json:"contactScore"`
-	CreatedAt                int64       `json:"createdAt"`
+	CreatedAt                int64       `json:"createdAt" bson:"createdAt"`
 	CreatedBy                int64       `json:"createdBy"`
 	Depart                   interface{} `json:"depart"`
 	DimDepart                int64       `json:"dimDepart"`
 	DoNotDisturb             bool        `json:"doNotDisturb"`
 	Email                    interface{} `json:"email"`
 	EntityType               int64       `json:"entityType"`
-	Gender                   int        `json:"gender"`
+	Gender                   int         `json:"gender"`
 	LockStatus               int         `json:"lockStatus"`
-	Mobile                   string     `json:"mobile"`
+	Mobile                   string      `json:"mobile"`
 	OwnerId                  int64       `json:"ownerId"`
-	Phone                    string     `json:"phone"`
+	Phone                    string      `json:"phone"`
 	Post                     interface{} `json:"post"`
 	RecentActivityRecordTime interface{} `json:"recentActivityRecordTime"`
 	State                    interface{} `json:"state"`
@@ -116,7 +116,7 @@ type Account struct {
 	AnnualRevenue             interface{} `json:"annualRevenue,omitempty"`
 	ClaimTime                 interface{} `json:"claimTime,omitempty"`
 	Comment                   interface{} `json:"comment,omitempty"`
-	CreatedAt                 int64       `json:"createdAt,omitempty"`
+	CreatedAt                 int64       `json:"createdAt,omitempty" bson:"createdAt"`
 	CreatedBy                 int64       `json:"createdBy,omitempty"`
 	DimDepart                 int64       `json:"dimDepart,omitempty"`
 	DoNotDisturb              bool        `json:"doNotDisturb,omitempty"`
@@ -150,7 +150,7 @@ type Account struct {
 	TotalWonOpportunities     int         `json:"totalWonOpportunities,omitempty"`
 	TotalWonOpportunityAmount int         `json:"totalWonOpportunityAmount,omitempty"`
 	UnpaidAmount              int         `json:"unpaidAmount,omitempty"`
-	UpdatedAt                 int64       `json:"updatedAt,omitempty"`
+	UpdatedAt                 int64       `json:"updatedAt,omitempty" bson:"updatedAt"`
 	UpdatedBy                 int64       `json:"updatedBy,omitempty"`
 	Url                       interface{} `json:"url,omitempty"`
 	VisitInplanCount          int         `json:"visitInplanCount,omitempty"`
@@ -164,7 +164,7 @@ type Account struct {
 // Contract 合同
 type Contract struct {
 	AccountId        int64       `json:"accountId"`
-	CreatedAt        int64       `json:"createdAt"`
+	CreatedAt        int64       `json:"createdAt" bson:"createdAt"`
 	EndDate          int64       `json:"endDate"`
 	Id               int64       `json:"id"`
 	OwnerId          int64       `json:"ownerId"`
@@ -218,7 +218,7 @@ type Description struct {
 			Updateable            bool        `json:"updateable"`
 			Sortable              bool        `json:"sortable"`
 			MinLength             interface{} `json:"minLength"`
-			MaxLength             int        `json:"maxLength"`
+			MaxLength             int         `json:"maxLength"`
 			DependentPropertyName interface{} `json:"dependentPropertyName"`
 			Unique                bool        `json:"unique"`
 			Encrypt               bool        `json:"encrypt"`

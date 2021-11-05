@@ -88,32 +88,32 @@ type Contact struct {
 // Lead 线索
 type Lead struct {
 	Id                       int64  `json:"id"`
-	EntityType               int64  `json:"entityType"`                 // 业务类型
-	OwnerId                  int64  `json:"ownerId"`                    // 销售线索所有人
-	Status                   int    `json:"status"`                     // 跟进状态
-	Name                     string `json:"name"`                       // 姓名
-	Gender                   int    `json:"gender"`                     // 性别
-	CompanyName              string `json:"companyName"`                // 公司名称
-	Depart                   string `json:"depart"`                     // 联系人所在部门
-	Post                     string `json:"post"`                       // 联系人职务
-	Phone                    string `json:"phone"`                      // 电话
-	Mobile                   string `json:"mobile"`                     // 手机
-	Email                    string `json:"email"`                      // 电子邮件
-	Address                  string `json:"address"`                    // 地址
-	LeadSourceId             int64  `json:"leadSourceId"`               // 线索来源
-	RecentActivityRecordTime int64  `json:"recentActivityRecordTime"`   // 最新活动记录时间
-	CampaignId               int64  `json:"campaignId"`                 //市场活动
-	RecentActivityCreatedBy  int64  `json:"recentActivityCreatedBy"`    //最新跟进人
-	CreatedAt                int64  `json:"createdAt" bson:"createdAt"` //创建日期
-	CreatedBy                int64  `json:"createdBy"`                  //创建人
-	UpdatedAt                int64  `json:"updatedBt"`                  //最新修改日
-	UpdatedBy                int64  `json:"updatedBy"`                  //最新修改人
-	Comment                  string `json:"comment"`                    //备注
-	LockStatus               int    `json:"lockStatus"`                 //锁定状态
-	HighSeaId                int64  `json:"highSeaId"`                  //所属公海
-	ClaimTime                int64  `json:"claimTime"`                  //认领日期
-	ExpireTime               int64  `json:"expireTime"`                 //到期时间
-	HighSeaStatus            int    //状态
+	EntityType               int64  `json:"entityType"`                         // 业务类型
+	OwnerId                  int64  `json:"ownerId"`                            // 销售线索所有人
+	Status                   int    `json:"status"`                             // 跟进状态
+	Name                     string `json:"name"`                               // 姓名
+	Gender                   int    `json:"gender"`                             // 性别
+	CompanyName              string `json:"companyName"`                        // 公司名称
+	Depart                   string `json:"depart"`                             // 联系人所在部门
+	Post                     string `json:"post"`                               // 联系人职务
+	Phone                    string `json:"phone"`                              // 电话
+	Mobile                   string `json:"mobile"`                             // 手机
+	Email                    string `json:"email"`                              // 电子邮件
+	Address                  string `json:"address"`                            // 地址
+	LeadSourceId             int64  `json:"leadSourceId"`                       // 线索来源
+	RecentActivityRecordTime int64  `json:"recentActivityRecordTime"`           // 最新活动记录时间
+	CampaignId               int64  `json:"campaignId" bson:"campaignId"`       //市场活动
+	RecentActivityCreatedBy  int64  `json:"recentActivityCreatedBy"`            //最新跟进人
+	CreatedAt                int64  `json:"createdAt" bson:"createdAt"`         //创建日期
+	CreatedBy                int64  `json:"createdBy"`                          //创建人
+	UpdatedAt                int64  `json:"updatedAt" bson:"updatedAt"`         //最新修改日
+	UpdatedBy                int64  `json:"updatedBy" bson:"updatedBy"`         //最新修改人
+	Comment                  string `json:"comment"`                            //备注
+	LockStatus               int    `json:"lockStatus" bson:"lockStatus"`       //锁定状态
+	HighSeaId                int64  `json:"highSeaId"`                          //所属公海
+	ClaimTime                int64  `json:"claimTime" bson:"claimTime"`         //认领日期
+	ExpireTime               int64  `json:"expireTime" bson:"expireTime"`       //到期时间
+	HighSeaStatus            int    `json:"highSeaStatus" bson:"highSeaStatus"` //状态
 	DimDepart                int64  //所属部门
 	ApplicantId              int64  //审批提交人
 	ApprovalStatus           int    //审批状态
@@ -121,12 +121,12 @@ type Lead struct {
 	OpportunityId            int64  //销售机会
 	DuplicateFlg             bool   `json:"duplicateFlg"` //疑似查重
 	ReleaseDefinition        string //退回原因说明
-	ContactId                int64  `json:"contactId"`     //联系人
-	AccountId                int64  `json:"accountId"`     //客户
-	ReleaseReason            int64  `json:"releaseReason"` //退回原因
-	ReleaseTime              int64  `json:"releaseTime"`   //退回时间
-	LastOwnerId              int64  `json:"lastOwnerId"`   //最后所有人
-	ReturnTimes              int64  `json:"returnTimes"`   //退回次数
+	ContactId                int64  `json:"contactId"`                      //联系人
+	AccountId                int64  `json:"accountId"`                      //客户
+	ReleaseReason            int64  `json:"releaseReason"`                  //退回原因
+	ReleaseTime              int64  `json:"releaseTime" bson:"releaseTime"` //退回时间
+	LastOwnerId              int64  `json:"lastOwnerId"`                    //最后所有人
+	ReturnTimes              int64  `json:"returnTimes"`                    //退回次数
 }
 
 // Document 文档
@@ -149,7 +149,7 @@ type User struct {
 	Phone          string `json:"phone"`
 	Status         int    `json:"status"` // 状态
 	LastestLoginAt int64  `json:"lastestLoginAt"`
-	CreatedAt      int64  // 创建时间
+	CreatedAt      int64  `json:"createdAt" bson:"createdAt"` // 创建时间
 	CreatedBy      int64  // 创建人
 	UpdatedAt      int64  // 修改时间
 	UpdatedBy      int64  // 修改人
@@ -171,7 +171,7 @@ type Account struct {
 	DoNotDisturb              bool        `json:"doNotDisturb,omitempty"`
 	EcouponsAccountLabel      interface{} `json:"ecouponsAccountLabel,omitempty"`
 	EmployeeNumber            interface{} `json:"employeeNumber,omitempty"`
-	ExpireTime                interface{} `json:"expireTime,omitempty"`
+	ExpireTime                interface{} `json:"expireTime,omitempty" bson:"expireTime"`
 	FCity                     int         `json:"fCity,omitempty"`
 	FDistrict                 interface{} `json:"fDistrict,omitempty"`
 	FState                    int         `json:"fState,omitempty"`
@@ -214,13 +214,13 @@ type Account struct {
 type Contract struct {
 	AccountId        int64       `json:"accountId"`
 	CreatedAt        int64       `json:"createdAt" bson:"createdAt"`
-	EndDate          int64       `json:"endDate"`
+	EndDate          int64       `json:"endDate" bson:"endDate"`
 	Id               int64       `json:"id"`
 	OwnerId          int64       `json:"ownerId"`
-	StartDate        int64       `json:"startDate"`
+	StartDate        int64       `json:"startDate" bson:"startDate"`
 	Status           int         `json:"status"`
 	Title            string      `json:"title"`
-	UpdatedAt        int64       `json:"updatedAt"`
+	UpdatedAt        int64       `json:"updatedAt" bson:"updatedAt"`
 	CustomItem158__C int64       `json:"customItem158__c"`
 	CustomItem159__C string      `json:"customItem159__c"`
 	CustomItem160__C int         `json:"customItem160__c"`
@@ -241,11 +241,11 @@ type Product struct {
 	PriceUnit         float64 // 标准价格
 	Unit              string  // 销售单位
 	Description       string  // 产品描述
-	CreatedAt         int64   // 创建日期
+	CreatedAt         int64   `json:"createdAt" bson:"createdAt"` // 创建日期
 	UpdatedAt         int64   // 最新修改日
 	EnableStatus      int     // 启用状态
 	CreatedBy         int64   // 创建人
-	UpdatedBy         int64   // 最新修改人
+	UpdatedBy         int64   `json:"updatedBy" bson:"updatedBy"` // 最新修改人
 	EntityType        int64   // 业务类型
 	DimDepart         int64   // 所属部门
 	ApprovalStatus    int     // 审批状态
